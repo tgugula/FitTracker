@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>FitTracker</title>
+</head>
+<body>
+
+<nav th:fragment="navbar" class=
+"uk-navbar-container uk-navbar" ><!--"uk-background-secondary uk-light uk-padding uk-panel"-->
+    <div class="uk-navbar-center">
+        <a th:href="@{/}" class = "uk-navbar item uk-logo">Fit Tracker</a>
+        <ul class = "uk-navbar-nav">
+            <li class="uk-parent"><a th:href="@{/stats}">Statystyki</a> </li>
+            <li class="uk-parent"><a th:href="@{/habits}">Zdrowe nawyki</a> </li>
+            <li class="uk-parent"><a th:href="@{/ratings}">Wskaźniki</a> </li>
+            <li class="uk-parent"><a th:href="@{/food}">Posiłki</a> </li>
+            <li class="uk-parent"><a th:href="@{/healthdata}">Dane Zdrowotne</a> </li>
+            <li class="uk-parent"><a th:href="@{/settings}">Ustawienia</a> </li>
+        </ul>
+    </div>
+</nav>
+
+</body>
+</html>

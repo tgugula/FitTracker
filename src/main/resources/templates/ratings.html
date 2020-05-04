@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout(~{::.container})}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+<h2 class="uk-text-center uk-card-title">Wskaźniki</h2>
+
+<h3 class="uk-heading-line"><span>Wskaźnik BMI</span></h3>
+    <p class="uk-text-left uk-text-center">BMI jest wskaźnikiem prostym do obliczenia, aczkolwiek należy pamiętać, że ma on pewne ograniczenia. BMI nie w pełni różnicuje masę ciała związaną z zawartością tłuszczu w organizmie człowieka z ilością mięśni oraz wody, nie uwzględnia także rozmieszczenia tkanki tłuszczowej. Ponadto może nie być wiarygodny, zwłaszcza u osób z rozbudowaną tkanką mięśniową – osoby z dużą ilością tkanki mięśniowej będą miały wysokie BMI, pomimo stosunkowo niewielkiej ilości tkanki tłuszczowej.</p>
+
+<h3 class="uk-heading-line"><span>Wskaźnik WHR (waist-hip-ratio)</span></h3>
+    <p class="uk-text-left uk-text-center">Proste badanie antropometryczne, pomagające w ocenie typu otyłości. WHR to wzajemny stosunek tych pomiarów - informuje nas o tym, czy mamy do czynienia z otyłością brzuszną (typu androidalnego) niosącą ryzyko powikłań metabolicznych, czy też z otyłością pośladkowo-udową (typu gynoidalnego) z mniejszym ryzykiem powikłań zdrowotnych.</p>
+<p class="uk-text-left uk-text-bold">Otyłość androidalna:</p>
+<ul class="uk-list">
+    <li> kobiety: WHR większy lub równy 0,8</li>
+    <li> mężczyźni: WHR większy lub równy 1,0</li>
+</ul>
+<p class="uk-text-left uk-text-bold">Otyłość gynoidalna:</p>
+<ul class="uk-list">
+    <li> kobiety: WHR niższy 0,8</li>
+    <li> mężczyźni: WHR niższy 1,0</li>
+</ul>
+
+</div>
+</body>
+</html>
