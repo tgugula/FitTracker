@@ -2,12 +2,173 @@
 <html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout(~{::.container})}">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <!--/*@thymesVar id="title" type=""*/-->
+    <title th:text="${title}"></title>
 </head>
 <body>
 <div class="container">
 <h2 class="uk-text-center uk-card-title">Zdrowe nawyki:</h2>
+    <h5 class="uk-text-center uk-card-body">Kliknij, jeżeli w dniu dzisiejszym udało Ci się osiągnąć dany cel</h5>
+    <!--/*@thymesVar id="title" type=""*/-->
+
+
+    <table class="uk-table uk-table-justify uk-table-divider" style="max-width: 800px; margin: 50px auto">
+        <!--<thead>
+        <tr>
+            <th class="uk-width-small">Table Heading</th>
+            <th>Table Heading</th>
+            <th>Table Heading</th>
+        </tr>
+        </thead>-->
+        <tbody>
+        <tr>
+            <td style="color: teal"><b>Czas na sen...</b></td>
+            <td>Czy spałeś dzisiaj co najmniej 7 godzin?</td>
+            <td><button class="uk-button uk-button-default" type="button" style="background-color: teal; color: white"><b>Potwierdź</b></button></td>
+        </tr>
+        <tr>
+            <td style="color: teal"><b>Jak w zegarku</b></td>
+            <td>Czy udało i się pójśc spać i wstać z łóżka zgodnie z planem? </td>
+            <td><button class="uk-button uk-button-default" type="button" style="background-color: teal; color: white"><b>Potwierdź</b></button></td>
+        </tr>
+        <tr>
+            <td style="color: teal"><b>Dobry początek dnia...</b></td>
+            <td>Czy udało Ci się zjeść dzisiaj zdrowe śniadanie?</td>
+            <td><button class="uk-button uk-button-default" type="button" style="background-color: teal; color: white"><b>Potwierdź</b></button></td>
+        </tr>
+        <tr>
+            <td style="color: teal"><b>Warzywa są super!</b></td>
+            <td>Czy dodałeś warzywa do swoich posiłków?</td>
+            <td><button class="uk-button uk-button-default" type="button" style="background-color: teal; color: white"><b>Potwierdź</b></button></td>
+        </tr>
+        <tr>
+            <td style="color: teal"><b>Słodkie lenistwo</b></td>
+            <td>Czy udało Ci się uciąć sobie popołudniową drzemkę?</td>
+            <td><button class="uk-button uk-button-default" type="button" style="background-color: teal; color: white"><b>Potwierdź</b></button></td>
+        </tr>
+        <tr>
+            <td style="color: teal"><b>Słodyczom mówimy stanowcze nie!</b></td>
+            <td>Czy udało Ci się ograniczyć słodycze?</td>
+            <td><button class="uk-button uk-button-default" type="button" style="background-color: teal; color: white"><b>Potwierdź</b></button></td>
+        </tr>
+        <tr>
+            <td style="color: teal"><b>Podobnie i alkoholowi mówimy stanowcze...czemu nie? ;)</b></td>
+            <td>Czy zdażyło Ci się zrobić lub wypić coś innego, gdy naszła Cię ochota na alkohol?</td>
+            <td><button class="uk-button uk-button-default" type="button" style="background-color: teal; color: white"><b>Potwierdź</b></button></td>
+        </tr>
+        <tr>
+            <td style="color: teal"><b>Ruch to zdrowie!</b></td>
+            <td>Czy udało Ci się wykonać codzienne ćwiczenia?</td>
+            <td><button class="uk-button uk-button-default" type="button" style="background-color: teal; color: white"><b>Potwierdź</b></button></td>
+        </tr>
+        <tr>
+            <td style="color: teal"><b>Oszczędzanie to ważna sprawa!</b></td>
+            <td>Czy udało Ci się odłożyć nawet drobną kwotę do skarbonki?</td>
+            <td><button class="uk-button uk-button-default" type="button" style="background-color: teal; color: white"><b>Potwierdź</b></button></td>
+        </tr>
+
+        </tbody>
+    </table>
+
+
+
+    <!--
+    <div class="box" style="flex-direction: row; display: flex">
+    <div class="habits" style="width: 200px;
+                            height: 200px;
+                            background-color: #32d296;
+                            color: white;
+                            text-align: center;
+                            vertical-align: center;
+                            margin: 10px"
+         th:text="${breakfast}"></div>
+
+        <div class="habits" style="width: 200px;
+                            height: 200px;
+                            background-color: #32d296;
+                            color: white;
+                            text-align: center;
+                            vertical-align: center;
+                            margin: 10px"
+             th:text="${nosweet}"></div>
+
+        <div class="habits" style="width: 200px;
+                            height: 200px;
+                            background-color: #32d296;
+                            color: white;
+                            text-align: center;
+                            vertical-align: center;
+                            margin: 10px"
+             th:text="${noalco}"></div>
+
+        <div class="habits" style="width: 200px;
+                            height: 200px;
+                            background-color: #32d296;
+                            color: white;
+                            text-align: center;
+                            vertical-align: center;
+                            margin: 10px"
+             th:text="${vege}"></div>
+
+        <div class="habits" style="width: 200px;
+                            height: 200px;
+                            background-color: #32d296;
+                            color: white;
+                            text-align: center;
+                            vertical-align: center;
+                            margin: 10px"
+             th:text="${calories}"></div>
+
+        <div class="habits" style="width: 200px;
+                            height: 200px;
+                            background-color: #32d296;
+                            color: white;
+                            text-align: center;
+                            vertical-align: center;
+                            margin: 10px"
+             th:text="${exercises}"></div>
+
+        <div class="habits" style="width: 200px;
+                            height: 200px;
+                            background-color: #32d296;
+                            color: white;
+                            text-align: center;
+                            vertical-align: center;
+                            margin: 10px"
+             th:text="${earning}"></div>
+
+        <div class="habits" style="width: 200px;
+                            height: 200px;
+                            background-color: #32d296;
+                            color: white;
+                            text-align: center;
+                            vertical-align: center;
+                            margin: 10px"
+             th:text="${wakeup}"></div>
+
+        <div class="habits" style="width: 200px;
+                            height: 200px;
+                            background-color: #32d296;
+                            color: white;
+                            text-align: center;
+                            vertical-align: center;
+                            margin: 10px"
+             th:text="${sleeping}"></div>
+</div>
+
+    <table>
+        <tr th:each="colorsRow : ${colors}">
+            <td width="100px" height="100px"
+            th:each="color : ${colorsRow}"
+            th:attr="bgcolor=${color}"></td>
+
+        </tr>
+
+    </table>
+-->
 </div>
 
 </body>
 </html>
+
+

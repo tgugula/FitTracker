@@ -7,6 +7,42 @@
 <body>
 <div class="container">
 <h2 class="uk-text-center uk-card-title">Ustawienia</h2>
+
+    <div class="settings-container" style="flex-direction: row; display: flex">
+        <div style="width: 20%;/* margin-left: 5px; border: red solid 1px*/">
+            <img src="..."
+                 alt="unnamed face"
+                 height="200"
+                 width="200"
+                 style="padding-bottom: 15px" >
+            <input class="uk-button uk-button-primary" width="200" type="text" value="Edytuj zdjęcie" style="background-color: teal; color: white">
+        </div>
+
+        <div class="uk-navbar-container uk-navbar" style="width: 80%; /*margin-right: 5px; border: red solid 1px*/">
+            <h4 class="uk-heading" ><span style="text-align: center">Zaktualizuj swoje dane</span></h4>
+
+            <div style="margin-top: 50px">
+                <form style="width: 500px; margin: auto"  method="post"> <!--th:action="@{/name/save}" th:object="${name}"-->
+                    <div class="uk-margin" style="flex-direction: row; display: flex">
+                        <label style="padding-left: 15px; width: 100px">Imię:</label>
+                        <input  class="uk-input" style="width: 400px" type="text"><!--th:field="*{name}"-->
+                    </div>
+                    <div class="uk-margin" style="flex-direction: row; display: flex">
+                        <label style="padding-left: 15px; width: 100px">Nazwisko:</label>
+                        <input  class="uk-input" style="width: 400px" type="text"><!--th:field="*{surname}"-->
+                    </div>
+                <div class="uk-margin" style="flex-direction: row; display: flex">
+                    <label style="padding-left: 15px; width: 100px">E-mail:</label>
+                    <input  class="uk-input" style="width: 400px" type="text"><!--th:field="*{email}"-->
+                </div>
+
+                    <input class="uk-button uk-button-primary" type="submit" value="Zapisz" style="background-color: teal; color: white">
+                    <!--<input th:field="*{id}" hidden type="number">-->
+                </form>
+            </div>
+        </div>
+
+</div>
 </div>
 </body>
 </html>

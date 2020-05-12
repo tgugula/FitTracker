@@ -7,23 +7,93 @@
 <body>
 <div class="container">
 <h2 class="uk-text-center uk-card-title">Wskaźniki</h2>
-
-<h3 class="uk-heading-line"><span>Wskaźnik BMI</span></h3>
+    <h3 class="uk-heading-line"><span>Wskaźnik BMI</span></h3>
     <p class="uk-text-left uk-text-center">BMI jest wskaźnikiem prostym do obliczenia, aczkolwiek należy pamiętać, że ma on pewne ograniczenia. BMI nie w pełni różnicuje masę ciała związaną z zawartością tłuszczu w organizmie człowieka z ilością mięśni oraz wody, nie uwzględnia także rozmieszczenia tkanki tłuszczowej. Ponadto może nie być wiarygodny, zwłaszcza u osób z rozbudowaną tkanką mięśniową – osoby z dużą ilością tkanki mięśniowej będą miały wysokie BMI, pomimo stosunkowo niewielkiej ilości tkanki tłuszczowej.</p>
+    <div class="bmi-container" style="flex-direction: row; display: flex">
+        <div style="width: 30%; /*margin-left: 5px; border: red solid 1px*/">
+            <h5 class="uk-heading">Zakresy wartości BMI:</h5>
+            <h6>mniej niż 16 - wygłodzenie</br>
+                16 - 16.99 - wychudzenie</br>
+                17 - 18.49 - niedowaga</br>
+                18.5 - 24.99 - wartość prawidłowa</br>
+                25 - 29.99 - nadwaga</br>
+                30 - 34.99 - I stopień otyłości</br>
+                35 - 39.99 - II stopień otyłości</br>
+                powyżej 40 - otyłość skrajna</h6>
+        </div>
 
-<h3 class="uk-heading-line"><span>Wskaźnik WHR (waist-hip-ratio)</span></h3>
+        <div class="uk-navbar-container uk-navbar" style="width: 60%;/* margin-right: 5px; border: red solid 1px*/">
+            <h4 class="uk-heading" ><span style="text-align: center; width: 100%; height: 30px">Oblicz swój wskaźnik BMI</span></h4>
+
+            <div style="margin-top: 50px">
+                <form style="width: 500px; margin: auto" th:action="@{/bmi/save}" th:object="${bmi}" method="post">
+                    <div class="uk-margin" style="flex-direction: row; display: flex">
+                        <label style="padding-left: 15px; width: 100px">Waga:</label>
+                        <input  class="uk-input" width="400px" type="number" step="0.01"><!--th:field="*{weight}"-->
+                    </div>
+                    <div class="uk-margin" style="flex-direction: row; display: flex">
+                        <label style="padding-left: 15px; width: 100px">Wzrost:  </label>
+                        <input  class="uk-input" width="400px" type="number" step="0.01" ><!--th:field="*{height}"-->
+                    </div>
+                    <input class="uk-button uk-button-primary" type="submit" value="Oblicz">
+
+                    <div class="uk-margin" style="flex-direction: row; display: flex">
+                        <label style="padding-left: 15px; width: 100px">Wynik:  </label>
+                        <input class="uk-input" width="400px" type="number" ><!--th:field="*{bmiResult}"-->
+                    </div>
+                    <input class="uk-button uk-button-primary" type="submit" value="Zapisz wynik">
+                    <!--<input th:field="*{id}" hidden type="number">-->
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <h3 class="uk-heading-line"><span>Wskaźnik WHR (waist-hip-ratio)</span></h3>
     <p class="uk-text-left uk-text-center">Proste badanie antropometryczne, pomagające w ocenie typu otyłości. WHR to wzajemny stosunek tych pomiarów - informuje nas o tym, czy mamy do czynienia z otyłością brzuszną (typu androidalnego) niosącą ryzyko powikłań metabolicznych, czy też z otyłością pośladkowo-udową (typu gynoidalnego) z mniejszym ryzykiem powikłań zdrowotnych.</p>
-<p class="uk-text-left uk-text-bold">Otyłość androidalna:</p>
-<ul class="uk-list">
-    <li> kobiety: WHR większy lub równy 0,8</li>
-    <li> mężczyźni: WHR większy lub równy 1,0</li>
-</ul>
-<p class="uk-text-left uk-text-bold">Otyłość gynoidalna:</p>
-<ul class="uk-list">
-    <li> kobiety: WHR niższy 0,8</li>
-    <li> mężczyźni: WHR niższy 1,0</li>
-</ul>
 
+    <div class="whr-container" style="flex-direction: row; display: flex">
+        <div style="width: 30%; /*margin-left: 5px; border: red solid 1px*/">
+            <p class="uk-text-left uk-text-bold">Otyłość androidalna:</p>
+            <ul class="uk-list">
+                <li> kobiety: WHR większy lub równy 0,8</li>
+                <li> mężczyźni: WHR większy lub równy 1,0</li>
+            </ul>
+
+            <p class="uk-text-left uk-text-bold">Otyłość gynoidalna:</p>
+            <ul class="uk-list">
+                <li> kobiety: WHR niższy 0,8</li>
+                <li> mężczyźni: WHR niższy 1,0</li>
+            </ul>
+
+        </div>
+
+        <div class="uk-navbar-container uk-navbar" style="width: 60%;/* margin-right: 5px; border: red solid 1px*/">
+            <h4 ><span style="width:100%; text-align: center">Oblicz swój wskaźnik WHR</span></h4>
+            <div style="margin-top: 50px">
+                <form style="width: 500px; margin: auto" th:action="@{/whr/save}" th:object="${whr}" method="post">
+                    <div class="uk-margin" style="flex-direction: row; display: flex">
+                        <label style="vertical-align: middle; word-break: normal; padding-left: 15px; width:100px">Obwód pasa:</label>
+                        <input  class="uk-input" width="400px" type="number" step="0.01"><!--th:field="*{waist}"-->
+                    </div>
+                    <div class="uk-margin" style="flex-direction: row; display: flex">
+                        <label style="vertical-align: middle; padding-left: 15px; width:100px">Obwód bioder:  </label>
+                        <input  class="uk-input" width="400px" type="number" step="0.01" ><!--th:field="*{hips}"-->
+                    </div>
+                    <input class="uk-button uk-button-primary" type="submit" value="Oblicz">
+
+                    <div class="uk-margin" style="flex-direction: row; display: flex">
+                        <label style="padding-left: 15px; width: 100px">Wynik:  </label>
+                        <input  width="400px" type="number" class="uk-input"><!--th:field="*{whrResult}"-->
+                    </div>
+                    <input class="uk-button uk-button-primary" type="submit" value="Zapisz wynik">
+                    <!--<input th:field="*{id}" hidden type="number">-->
+                </form>
+            </div>
+</div>
+    </div>
 </div>
 </body>
 </html>

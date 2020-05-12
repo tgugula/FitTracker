@@ -2,7 +2,6 @@ package pl.edu.wszib.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import pl.edu.wszib.dao.ParameterDao;
 
@@ -27,10 +26,10 @@ public class ParameterController {
         return "food";
     }
 
-    @GetMapping("habits")
+/*    @GetMapping("habits")
     public String habits() {
         return "habits";
-    }
+    }*/
 
     @GetMapping("healthdata")
     public String healthdata() {
