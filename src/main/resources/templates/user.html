@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout(~{::.container})}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <h2 class="uk-text-center uk-card-title">Edycja ustawień</h2>
+
+<div style="margin-top: 50px">
+    <!--/*@thymesVar id="user" type=""*/-->
+    <form style="width: 500px; margin: auto" th:action="@{/users/save}"  th:object="${user}" method="post">
+        <div class="uk-margin" style="flex-direction: row; display: flex">
+            <label style="padding-left: 15px; width: 100px">Imię:</label>
+            <input  th:field="*{name}" class="uk-input" style="width: 400px" type="text">
+        </div>
+        <div class="uk-margin" style="flex-direction: row; display: flex">
+            <label style="padding-left: 15px; width: 100px">Nazwisko:</label>
+            <input  th:field="*{surname}"class="uk-input" style="width: 400px" type="text">
+        </div>
+    <div class="uk-margin" style="flex-direction: row; display: flex">
+        <label style="padding-left: 15px; width: 100px">E-mail:</label>
+        <input  th:field="*{email}"class="uk-input" style="width: 400px" type="text">
+    </div>
+        <div class="uk-margin" style="flex-direction: row; display: flex">
+            <label style="padding-left: 15px; width: 100px">Wiek:</label>
+            <input  th:field="*{age}" class="uk-input" style="width: 400px" step="1" type="text">
+        </div>
+        <div class="uk-margin" style="flex-direction: row; display: flex">
+            <label style="padding-left: 15px; width: 100px">Wzrost:</label>
+            <input  th:field="*{height}" class="uk-input" step="1" style="width: 400px" type="text">
+        </div>
+        <div class="uk-margin" style="flex-direction: row; display: flex">
+            <label style="padding-left: 15px; width: 100px">Waga:</label>
+            <input  th:field="*{weight}"class="uk-input" step="1" style="width: 400px" type="text">
+        </div>
+
+        <input th:field="*{id}" hidden type="number">
+        <a th:href="@{/users}"><input type="button" value="Anuluj" class="uk-button uk-button-danger"></a>
+        <input class="uk-button uk-button-primary" type="submit" value="Zapisz" style="background-color: teal; color: white">
+
+
+
+    </form>
+</div>
+</div>
+</body>
+</html>
