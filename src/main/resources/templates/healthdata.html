@@ -4,31 +4,39 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-
 <body>
 <div class="container">
-<h2 class="uk-text-center uk-card-title">Dane zdrowotne </h2>
+    <h2 class="uk-text-center uk-card-title">Edycja ustawień</h2>
 
-    <div>
-    <dl class="uk-description-list uk-description-list-divider" style="max-width: 800px; margin: 50px auto">
-        <dt>Leki</dt>
-        <dd>Uzupełnij nazwy oraz dawki leków, które zażywasz</dd>
-        <dd></dd>
-        <dd><td><button class="uk-button uk-button-small" type="button" style="background-color: teal; color: white"><b>Dodaj</b></button></td></dd>
-        <dt>Grupa krwi</dt>
-        <dd>Podaj swoją grupę krwi</dd>
-        <dd></dd>
-        <dd><td><button class="uk-button uk-button-small" type="button" style="background-color: teal; color: white"><b>Dodaj</b></button></td></dd>
-        <dt>Oświadczenie woli</dt>
-        <dd>Czy wyrażasz zgodę, na pobieranie po śmierci swoich narządów do przeszczepu?</dd>
-        <dd></dd>
-        <dd><td><button class="uk-button uk-button-small" type="button" style="background-color: teal; color: white"><b>Dodaj</b></button></td></dd>
-        <dt>Notatki dotyczące stanu zdrowia</dt>
-        <dd></dd>
-        <dd><td><button class="uk-button uk-button-small" type="button" style="background-color: teal; color: white"><b>Dodaj</b></button></td></dd>
-    </dl>
-</div>
-</div>
+    <div style="margin-top: 50px">
+        <!--/*@thymesVar id="user" type=""*/-->
+        <form style="width: 500px; margin: auto" th:action="@{/healthdatas/save}"  th:object="${healthdata}" method="post">
+            <div class="uk-margin" style="flex-direction: row; display: flex">
+                <label style="padding-left: 15px; width: 200px">Leki:</label>
+                <textarea wrap="hard" th:field="*{medicine}" class="uk-textarea" style="width: 500px" type="text"></textarea>
+            </div>
+            <div class="uk-margin" style="flex-direction: row; display: flex">
+                <label style="padding-left: 15px; width: 200px">Grupa krwi:</label>
+                <input  th:field="*{bloodType}"class="uk-input" style="width: 500px" type="text">
+            </div>
+            <div class="uk-margin" style="flex-direction: row; display: flex">
+                <label style="padding-left: 15px; width: 200px">Oświadczenie woli:</label>
+                <input  th:field="*{declaration}"class="uk-checkbox"  type="checkbox">
+            </div>
+            <div class="uk-margin" style="flex-direction: row; display: flex">
+                <label style="padding-left: 15px; width: 200px">Notatki dotyczące stanu zdrowia:</label>
+                <textarea wrap="hard" th:field="*{notes}" class="uk-textarea" style="width: 500px" type="text"></textarea>
+            </div>
 
+
+            <input th:field="*{id}" hidden type="number">
+            <a th:href="@{/healthdatas}"><input type="button" value="Anuluj" class="uk-button uk-button-danger"></a>
+            <input class="uk-button uk-button-primary" type="submit" value="Zapisz" style="background-color: teal; color: white">
+
+
+
+        </form>
+    </div>
+</div>
 </body>
 </html>

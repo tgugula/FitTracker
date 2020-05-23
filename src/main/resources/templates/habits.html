@@ -8,63 +8,367 @@
 <body>
 <div class="container">
 <h2 class="uk-text-center uk-card-title">Zdrowe nawyki:</h2>
-    <h5 class="uk-text-center uk-card-body">Kliknij, jeżeli w dniu dzisiejszym udało Ci się osiągnąć dany cel</h5>
-    <!--/*@thymesVar id="title" type=""*/-->
+    <h4 class="uk-text-center uk-card-body" style="margin: 5px; padding: 5px">Kliknij, jeżeli w dniu dzisiejszym udało Ci się osiągnąć dany cel</h4>
 
 
-    <table class="uk-table uk-table-justify uk-table-divider" style="max-width: 800px; margin: 50px auto">
+    <h3 class="uk-heading-line" style="margin-top: 30px; padding: 5px auto"><span style="max-width: 800px; color: teal">Czas na sen</span></h3>
+    <h5 style="margin: 5px; padding: 5px"><span >Czy spałeś dzisiaj co najmniej 7 godzin?</span></h5>
+    <button class="uk-button uk-button-default" type="button" style="background-color: teal; color: white"><b>Potwierdź</b></button></td>
 
-        <tbody>
-        <tr>
-            <td style="color: teal"><b>Czas na sen...</b></td>
-            <td>Czy spałeś dzisiaj co najmniej 7 godzin?</td>
-            <td><button class="uk-button uk-button-default" type="button" style="background-color: teal; color: white"><b>Potwierdź</b></button></td>
-        </tr>
-        <tr>
-            <td style="color: teal"><b>Jak w zegarku</b></td>
-            <td>Czy udało i się pójśc spać i wstać z łóżka zgodnie z planem? </td>
-            <td><button class="uk-button uk-button-default" type="button" style="background-color: teal; color: white"><b>Potwierdź</b></button></td>
-        </tr>
-        <tr>
-            <td style="color: teal"><b>Dobry początek dnia...</b></td>
-            <td>Czy udało Ci się zjeść dzisiaj zdrowe śniadanie?</td>
-            <td><button class="uk-button uk-button-default" type="button" style="background-color: teal; color: white"><b>Potwierdź</b></button></td>
-        </tr>
-        <tr>
-            <td style="color: teal"><b>Warzywa są super!</b></td>
-            <td>Czy dodałeś warzywa do swoich posiłków?</td>
-            <td><button class="uk-button uk-button-default" type="button" style="background-color: teal; color: white"><b>Potwierdź</b></button></td>
-        </tr>
-        <tr>
-            <td style="color: teal"><b>Słodkie lenistwo</b></td>
-            <td>Czy udało Ci się uciąć sobie popołudniową drzemkę?</td>
-            <td><button class="uk-button uk-button-default" type="button" style="background-color: teal; color: white"><b>Potwierdź</b></button></td>
-        </tr>
-        <tr>
-            <td style="color: teal"><b>Słodyczom mówimy stanowcze nie!</b></td>
-            <td>Czy udało Ci się ograniczyć słodycze?</td>
-            <td><button class="uk-button uk-button-default" type="button" style="background-color: teal; color: white"><b>Potwierdź</b></button></td>
-        </tr>
-        <tr>
-            <td style="color: teal"><b>Podobnie i alkoholowi mówimy stanowcze...czemu nie? ;)</b></td>
-            <td>Czy zdażyło Ci się zrobić lub wypić coś innego, gdy naszła Cię ochota na alkohol?</td>
-            <td><button class="uk-button uk-button-default" type="button" style="background-color: teal; color: white"><b>Potwierdź</b></button></td>
-        </tr>
-        <tr>
-            <td style="color: teal"><b>Ruch to zdrowie!</b></td>
-            <td>Czy udało Ci się wykonać codzienne ćwiczenia?</td>
-            <td><button class="uk-button uk-button-default" type="button" style="background-color: teal; color: white"><b>Potwierdź</b></button></td>
-        </tr>
-        <tr>
-            <td style="color: teal"><b>Oszczędzanie to ważna sprawa!</b></td>
-            <td>Czy udało Ci się odłożyć nawet drobną kwotę do skarbonki?</td>
-            <td><button class="uk-button uk-button-default" type="button" style="background-color: teal; color: white"><b>Potwierdź</b></button></td>
-        </tr>
+    <ul uk-tab style="margin-top: 20px">
+        <li class="uk-active"><a href="#">Tydzień</a></li>
+        <li><a href="#">Miesiąc</a></li>
+        <li><a href="#">Kwartał</a></li>
+    </ul>
 
-        </tbody>
-    </table>
+            <div style=" max-width: 800px; margin: 50px auto">
+                <canvas id="line-chart-1" width="800" height="200"></canvas>
+            </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 
-    <div class="uk-grid-match uk-child-width-expand@s uk-text-center" uk-grid style="max-width: 800px; margin: auto">
+    <script th:inline="javascript">
+        new Chart(document.getElementById("line-chart"), {
+            type: 'line',
+            data: {
+                labels: [2020-05-13,2020-05-14,2020-05-15,2020-05-16,2020-05-17,2020-05-18,2020-05-19,2020-05-20,2020-05-21,2020-05-22],
+                datasets: [{
+                    data: [true, false, true, true, false, true, true, false, true, false],
+                    label: "sen",
+                    borderColor: "teal",
+                    fill: false
+                },
+                ]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: 'Minimum 7 godzin snu dziennie'
+                }
+            }
+        });
+
+    </script>
+
+
+    <h3 class="uk-heading-line" style="margin-top: 30px; padding: 5px auto"><span style="max-width: 800px; color: teal">Jak w zegarku</span></h3>
+    <h5 style="margin: 5px; padding: 5px"><span >Czy udało i się pójśc spać i wstać z łóżka zgodnie z planem?</span></h5>
+    <button class="uk-button uk-button-default" type="button" style="background-color: teal; color: white"><b>Potwierdź</b></button></td>
+
+    <ul uk-tab style="margin-top: 20px">
+        <li class="uk-active"><a href="#">Tydzień</a></li>
+        <li><a href="#">Miesiąc</a></li>
+        <li><a href="#">Kwartał</a></li>
+    </ul>
+
+    <div style=" max-width: 800px; margin: 50px auto">
+        <canvas id="line-chart-2" width="800" height="200"></canvas>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+    <script th:inline="javascript">
+        new Chart(document.getElementById("line-chart"), {
+            type: 'line',
+            data: {
+                labels: [2020-05-13,2020-05-14,2020-05-15,2020-05-16,2020-05-17,2020-05-18,2020-05-19,2020-05-20,2020-05-21,2020-05-22],
+                datasets: [{
+                    data: [true, false, true, true, false, true, true, false, true, false],
+                    label: "plan snu",
+                    borderColor: "teal",
+                    fill: false
+                },
+                ]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: 'Pory snu - zgodnie z planem!'
+                }
+            }
+        });
+
+    </script>
+
+
+
+
+    <h3 class="uk-heading-line" style="margin-top: 30px; padding: 5px auto"><span style="max-width: 800px; color: teal">Dobry początek dnia</span></h3>
+    <h5 style="margin: 5px; padding: 5px"><span >Czy udało Ci się zjeść dzisiaj zdrowe śniadanie?</span></h5>
+    <button class="uk-button uk-button-default" type="button" style="background-color: teal; color: white"><b>Potwierdź</b></button></td>
+
+    <ul uk-tab style="margin-top: 20px">
+        <li class="uk-active"><a href="#">Tydzień</a></li>
+        <li><a href="#">Miesiąc</a></li>
+        <li><a href="#">Kwartał</a></li>
+    </ul>
+
+    <div style=" max-width: 800px; margin: 50px auto">
+        <canvas id="line-chart-3" width="800" height="200"></canvas>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+    <script th:inline="javascript">
+        new Chart(document.getElementById("line-chart"), {
+            type: 'line',
+            data: {
+                labels: [2020-05-13,2020-05-14,2020-05-15,2020-05-16,2020-05-17,2020-05-18,2020-05-19,2020-05-20,2020-05-21,2020-05-22],
+                datasets: [{
+                    data: [true, false, true, true, false, true, true, false, true, false],
+                    label: "Dobry początek dnia",
+                    borderColor: "teal",
+                    fill: false
+                },
+                ]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: 'Zdrowe śniadanie'
+                }
+            }
+        });
+
+    </script>
+
+
+
+    <h3 class="uk-heading-line" style="margin-top: 30px; padding: 5px auto"><span style="max-width: 800px; color: teal">Warzywa są super!</span></h3>
+    <h5 style="margin: 5px; padding: 5px"><span >Czy dodałeś warzywa do swoich posiłków?</span></h5>
+    <button class="uk-button uk-button-default" type="button" style="background-color: teal; color: white"><b>Potwierdź</b></button></td>
+
+    <ul uk-tab style="margin-top: 20px">
+        <li class="uk-active"><a href="#">Tydzień</a></li>
+        <li><a href="#">Miesiąc</a></li>
+        <li><a href="#">Kwartał</a></li>
+    </ul>
+
+    <div style=" max-width: 800px; margin: 50px auto">
+        <canvas id="line-chart-4" width="800" height="200"></canvas>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+    <script th:inline="javascript">
+        new Chart(document.getElementById("line-chart"), {
+            type: 'line',
+            data: {
+                labels: [2020-05-13,2020-05-14,2020-05-15,2020-05-16,2020-05-17,2020-05-18,2020-05-19,2020-05-20,2020-05-21,2020-05-22],
+                datasets: [{
+                    data: [true, false, true, true, false, true, true, false, true, false],
+                    label: "warzywa",
+                    borderColor: "teal",
+                    fill: false
+                },
+                ]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: 'Warzywa są super'
+                }
+            }
+        });
+
+    </script>
+
+
+    <h3 class="uk-heading-line" style="margin-top: 30px; padding: 5px auto"><span style="max-width: 800px; color: teal">Słodkie lenistwo</span></h3>
+    <h5 style="margin: 5px; padding: 5px"><span >Czy udało Ci się uciąć sobie popołudniową drzemkę?</span></h5>
+    <button class="uk-button uk-button-default" type="button" style="background-color: teal; color: white"><b>Potwierdź</b></button></td>
+
+    <ul uk-tab style="margin-top: 20px">
+        <li class="uk-active"><a href="#">Tydzień</a></li>
+        <li><a href="#">Miesiąc</a></li>
+        <li><a href="#">Kwartał</a></li>
+    </ul>
+
+    <div style=" max-width: 800px; margin: 50px auto">
+        <canvas id="line-chart-5" width="800" height="200"></canvas>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+    <script th:inline="javascript">
+        new Chart(document.getElementById("line-chart"), {
+            type: 'line',
+            data: {
+                labels: [2020-05-13,2020-05-14,2020-05-15,2020-05-16,2020-05-17,2020-05-18,2020-05-19,2020-05-20,2020-05-21,2020-05-22],
+                datasets: [{
+                    data: [true, false, true, true, false, true, true, false, true, false],
+                    label: "drzemka",
+                    borderColor: "teal",
+                    fill: false
+                },
+                ]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: 'Słodkie lenistwo'
+                }
+            }
+        });
+
+    </script>
+
+
+    <h3 class="uk-heading-line" style="margin-top: 30px; padding: 5px auto"><span style="max-width: 800px; color: teal">Słodyczom mówimy stanowcze nie!</span></h3>
+    <h5 style="margin: 5px; padding: 5px"><span >Czy udało Ci się ograniczyć słodycze?</span></h5>
+    <button class="uk-button uk-button-default" type="button" style="background-color: teal; color: white"><b>Potwierdź</b></button></td>
+
+    <ul uk-tab style="margin-top: 20px">
+        <li class="uk-active"><a href="#">Tydzień</a></li>
+        <li><a href="#">Miesiąc</a></li>
+        <li><a href="#">Kwartał</a></li>
+    </ul>
+
+    <div style=" max-width: 800px; margin: 50px auto">
+        <canvas id="line-chart-6" width="800" height="200"></canvas>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+    <script th:inline="javascript">
+        new Chart(document.getElementById("line-chart"), {
+            type: 'line',
+            data: {
+                labels: [2020-05-13,2020-05-14,2020-05-15,2020-05-16,2020-05-17,2020-05-18,2020-05-19,2020-05-20,2020-05-21,2020-05-22],
+                datasets: [{
+                    data: [true, false, true, true, false, true, true, false, true, false],
+                    label: "słodycze",
+                    borderColor: "teal",
+                    fill: false
+                },
+                ]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: 'Słodyczom mówimy stanowcze nie'
+                }
+            }
+        });
+
+    </script>
+
+
+    <h3 class="uk-heading-line" style="margin-top: 30px; padding: 5px auto"><span style="max-width: 800px; color: teal">Podobnie i alkoholowi mówimy stanowcze...czemu nie? ;)</span></h3>
+    <h5 style="margin: 5px; padding: 5px"><span >Czy zdażyło Ci się zrobić lub wypić coś innego, gdy naszła Cię ochota na alkohol?</span></h5>
+    <button class="uk-button uk-button-default" type="button" style="background-color: teal; color: white"><b>Potwierdź</b></button></td>
+
+    <ul uk-tab style="margin-top: 20px">
+        <li class="uk-active"><a href="#">Tydzień</a></li>
+        <li><a href="#">Miesiąc</a></li>
+        <li><a href="#">Kwartał</a></li>
+    </ul>
+
+    <div style=" max-width: 800px; margin: 50px auto">
+        <canvas id="line-chart-7" width="800" height="200"></canvas>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+    <script th:inline="javascript">
+        new Chart(document.getElementById("line-chart"), {
+            type: 'line',
+            data: {
+                labels: [2020-05-13,2020-05-14,2020-05-15,2020-05-16,2020-05-17,2020-05-18,2020-05-19,2020-05-20,2020-05-21,2020-05-22],
+                datasets: [{
+                    data: [true, false, true, true, false, true, true, false, true, false],
+                    label: "używki",
+                    borderColor: "teal",
+                    fill: false
+                },
+                ]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: 'Podobnie i alkoholowi mówimy stanowcze...czemu nie? ;)'
+                }
+            }
+        });
+
+    </script>
+
+
+    <h3 class="uk-heading-line" style="margin-top: 30px; padding: 5px auto"><span style="max-width: 800px; color: teal">Ruch to zdrowie!</span></h3>
+    <h5 style="margin: 5px; padding: 5px"><span >Czy udało Ci się wykonać codzienne ćwiczenia?</span></h5>
+    <button class="uk-button uk-button-default" type="button" style="background-color: teal; color: white"><b>Potwierdź</b></button></td>
+
+    <ul uk-tab style="margin-top: 20px">
+        <li class="uk-active"><a href="#">Tydzień</a></li>
+        <li><a href="#">Miesiąc</a></li>
+        <li><a href="#">Kwartał</a></li>
+    </ul>
+
+    <div style=" max-width: 800px; margin: 50px auto">
+        <canvas id="line-chart-8" width="800" height="200"></canvas>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+    <script th:inline="javascript">
+        new Chart(document.getElementById("line-chart"), {
+            type: 'line',
+            data: {
+                labels: [2020-05-13,2020-05-14,2020-05-15,2020-05-16,2020-05-17,2020-05-18,2020-05-19,2020-05-20,2020-05-21,2020-05-22],
+                datasets: [{
+                    data: [true, false, true, true, false, true, true, false, true, false],
+                    label: "ruch",
+                    borderColor: "teal",
+                    fill: false
+                },
+                ]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: 'Ruch to zdrowie!'
+                }
+            }
+        });
+
+    </script>
+
+
+    <h3 class="uk-heading-line" style="margin-top: 30px; padding: 5px auto"><span style="max-width: 800px; color: teal">Oszczędzanie to ważna sprawa!</span></h3>
+    <h5 style="margin: 5px; padding: 5px"><span >Czy udało Ci się odłożyć nawet drobną kwotę do skarbonki?</span></h5>
+    <button class="uk-button uk-button-default" type="button" style="background-color: teal; color: white"><b>Potwierdź</b></button></td>
+
+    <ul uk-tab style="margin-top: 20px">
+        <li class="uk-active"><a href="#">Tydzień</a></li>
+        <li><a href="#">Miesiąc</a></li>
+        <li><a href="#">Kwartał</a></li>
+    </ul>
+
+    <div style=" max-width: 800px; margin: 50px auto">
+        <canvas id="line-chart" width="800" height="200"></canvas>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+    <script th:inline="javascript">
+        new Chart(document.getElementById("line-chart"), {
+            type: 'line',
+            data: {
+                labels: [2020-05-13,2020-05-14,2020-05-15,2020-05-16,2020-05-17,2020-05-18,2020-05-19,2020-05-20,2020-05-21,2020-05-22],
+                datasets: [{
+                    data: [true, false, true, true, false, true, true, false, true, false],
+                    label: "oszczędzanie",
+                    borderColor: "teal",
+                    fill: false
+                },
+                ]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: 'Oszczędzanie to ważna sprawa!'
+                }
+            }
+        });
+
+    </script>
+
+
+
+
+
+    <!--<div class="uk-grid-match uk-child-width-expand@s uk-text-center" uk-grid style="max-width: 800px; margin: auto">
         <div href="www.google.pl">
             <div class="uk-card uk-card-default uk-card-body" style="max-width: 250px">Czas na sen...<br>
             Czy spałeś dzisiaj co najmniej 7 godzin?</div>
@@ -76,101 +380,8 @@
             <div class="uk-card uk-card-default uk-card-body" style="max-width: 250px">Item<br>...<br>...</div>
         </div>
     </div>
-
-    <!--
-    <div class="box" style="flex-direction: row; display: flex">
-    <div class="habits" style="width: 200px;
-                            height: 200px;
-                            background-color: #32d296;
-                            color: white;
-                            text-align: center;
-                            vertical-align: center;
-                            margin: 10px"
-         th:text="${breakfast}"></div>
-
-        <div class="habits" style="width: 200px;
-                            height: 200px;
-                            background-color: #32d296;
-                            color: white;
-                            text-align: center;
-                            vertical-align: center;
-                            margin: 10px"
-             th:text="${nosweet}"></div>
-
-        <div class="habits" style="width: 200px;
-                            height: 200px;
-                            background-color: #32d296;
-                            color: white;
-                            text-align: center;
-                            vertical-align: center;
-                            margin: 10px"
-             th:text="${noalco}"></div>
-
-        <div class="habits" style="width: 200px;
-                            height: 200px;
-                            background-color: #32d296;
-                            color: white;
-                            text-align: center;
-                            vertical-align: center;
-                            margin: 10px"
-             th:text="${vege}"></div>
-
-        <div class="habits" style="width: 200px;
-                            height: 200px;
-                            background-color: #32d296;
-                            color: white;
-                            text-align: center;
-                            vertical-align: center;
-                            margin: 10px"
-             th:text="${calories}"></div>
-
-        <div class="habits" style="width: 200px;
-                            height: 200px;
-                            background-color: #32d296;
-                            color: white;
-                            text-align: center;
-                            vertical-align: center;
-                            margin: 10px"
-             th:text="${exercises}"></div>
-
-        <div class="habits" style="width: 200px;
-                            height: 200px;
-                            background-color: #32d296;
-                            color: white;
-                            text-align: center;
-                            vertical-align: center;
-                            margin: 10px"
-             th:text="${earning}"></div>
-
-        <div class="habits" style="width: 200px;
-                            height: 200px;
-                            background-color: #32d296;
-                            color: white;
-                            text-align: center;
-                            vertical-align: center;
-                            margin: 10px"
-             th:text="${wakeup}"></div>
-
-        <div class="habits" style="width: 200px;
-                            height: 200px;
-                            background-color: #32d296;
-                            color: white;
-                            text-align: center;
-                            vertical-align: center;
-                            margin: 10px"
-             th:text="${sleeping}"></div>
-</div>
-
-    <table>
-        <tr th:each="colorsRow : ${colors}">
-            <td width="100px" height="100px"
-            th:each="color : ${colorsRow}"
-            th:attr="bgcolor=${color}"></td>
-
-        </tr>
-
-    </table>
 -->
+
 </div>
 
 </body>

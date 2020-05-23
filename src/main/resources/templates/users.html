@@ -11,7 +11,7 @@
     <div class="settings-container" style="flex-direction: row; display: flex">
         <div style="width: 20%;/* margin-left: 5px; border: red solid 1px*/">
             <!--<img src="..." alt="unnamed face" height="200" width="200" style="padding-bottom: 15px" >-->
-            <input class="uk-button uk-button-primary" position="auto" width="100px" type="text" value="Edytuj zdjęcie" style="background-color: teal; color: white">
+            <input class="uk-button" position="auto"  type="text" value="Edytuj zdjęcie" style="width:160px; background-color: teal; color: white">
         </div>
         
         <div class="uk-navbar-container uk-navbar" style="width: 80%">
@@ -38,9 +38,8 @@
                             <td th:text="${user.height}"></td>
                             <td th:text="${user.weight}"></td>
                             <td>
-                                <a th:href="@{/users/edit/{id}(id=${user.id})}"><input class="uk-button uk-button-primary"
-                                                                                       position="auto" width="140px" type="text"
-                                                                                       value="Edytuj dane" style="background-color: teal; color: white"></a>
+                                <a th:href="@{/users/edit/{id}(id=${user.id})}">
+                                    <input class="uk-button" position="auto"  type="text"  value="Edytuj dane" style="width:160px; background-color: teal; color: white"></a>
                             </td>
                         </tr>
                     </tbody>

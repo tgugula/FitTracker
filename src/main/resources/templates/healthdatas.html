@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout(~{::.container})}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+<div class="container">
+    <h2 class="uk-text-center uk-card-title">Dane zdrowotne </h2>
+
+    <div>
+        <dl th:each="healthdata : ${healthdatas}" class="uk-description-list uk-description-list-divider" style="max-width: 800px; margin: 50px auto">
+            <dt>Leki</dt>
+            <dd th:text="${healthdata.medicine}"></dd>
+
+            <dt>Grupa krwi</dt>
+            <dd th:text="${healthdata.bloodType}"></dd>
+
+            <dt>Oświadczenie woli</dt>
+            <dd>Czy wyrażasz zgodę, na pobieranie po śmierci swoich narządów do przeszczepu?</dd>
+            <dd><span th:uk-icon="${healthdata.declaration} ? 'check' : 'close'"></span></dd>
+
+            <dt>Notatki dotyczące stanu zdrowia</dt>
+            <dd th:text="${healthdata.notes}"></dd>
+
+            <dt></dt>
+            <dd>
+                <a th:href="@{/healthdatas/edit/{id}(id=${healthdata.id})}">
+                    <input class="uk-button" value="Edytuj" type="button" style="background-color: teal; color: white"></a>
+<!--                <a th:href="@{/healthdatas/remove/{id}(id=${healthdata.id})}"> usuwa wszystko
+                    <input class="uk-button uk-button-danger" value="Usuń dane" type="button"></a>-->
+            </dd>
+        </dl>
+    </div>
+</div>
+
+</body>
+</html>
+
+
+
+
