@@ -7,6 +7,177 @@
 <body>
 <div class="container">
 <h2 class="uk-text-center uk-card-title">Posiłki</h2>
+    <!--<p th:text="${#dates.createToday()}"></p>-->
+
+    <div class="uk-grid-column-small uk-grid-row-large uk-child-width-1-3@s uk-text-center" uk-grid>
+
+        <div>
+            <div class="uk-card uk-card-default uk-card-body"
+                 style="background-color: teal; color: white">Sniadanie</div>
+        </div>
+        <div>
+            <div class="uk-card uk-card-default uk-card-body"
+                 style="background-color: teal; color: white">Obiad</div>
+        </div>
+        <div>
+            <div class="uk-card uk-card-default uk-card-body"
+                 style="background-color: teal; color: white">Kolacja</div>
+        </div>
+        <div>
+            <div class="uk-card uk-card-default uk-card-body"
+                 style="background-color: teal; color: white">Poranna przekąska</div>
+        </div>
+        <div>
+            <div class="uk-card uk-card-default uk-card-body"
+                 style="background-color: teal; color: white">Popołudniowa przekąska</div>
+        </div>
+        <div>
+            <div class="uk-card uk-card-default uk-card-body"
+                 style="background-color: teal; color: white">Wieczorna przekąska</div>
+        </div>
+    </div>
+
+
+<!--Legenda dot. kalorii-->
+    <div style="margin-top: 30px; margin-bottom: 30px;">
+        <button class="uk-button uk-button-default"
+                type="button" uk-toggle="target: #toggle-legend"
+                style="color: white; background-color: teal">Zapotrzebowanie na kalorie</button>
+        <button class="uk-button uk-button-default"
+                type="button" uk-toggle="target: #toggle-history"
+                style="color: white; background-color: teal">Historia spożytych posiłków</button>
+        <div id="toggle-legend">
+            <h4 class="uk-heading-line">
+            <span style="margin-top: 20px">
+              Dzienny poziom zapotrzebowania na energię w podziale na grupy ludności
+            </span></h4>
+
+            <div><table class="uk-table uk-table-small">
+                <thead>
+                <tr>
+                    <th>Grupa ludności</th>
+                    <th>Ogółem [kcal]</th>
+                    <th>Grupa ludności</th>
+                    <th>Ogółem [kcal]</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <tr>
+                    <td>Dzieci 1-3 lat</td>
+                    <td>1 300</td>
+                    <td>Mężczyźni 21-64 lat praca ciężka</td>
+                    <td>3 500 - 4 000</td>
+                </tr>
+                <tr>
+                    <td>Dzieci 4-6 lat</td>
+                    <td>1 700</td>
+                    <td>Mężczyźni 21-64 lat praca bardzo ciężka</td>
+                    <td>4 000 - 4 500</td>
+                </tr>
+                <tr>
+                    <td>Dzieci 7-9 lat</td>
+                    <td>2 100</td>
+                    <td>Kobiety 21-59 lat praca lekka</td>
+                    <td>2 100 - 2 300</td>
+                </tr>
+                <tr>
+                    <td>Chłopcy 10-12 lat</td>
+                    <td>2 600</td>
+                    <td>Kobiety 21-59 lat praca umiarkowana</td>
+                    <td>2 400 - 2 800</td>
+                </tr>
+                <tr>
+                    <td>Dziewczęta 10-12 lat</td>
+                    <td>2 300</td>
+                    <td>Kobiety 21-59 lat praca ciężka</td>
+                    <td>2 900 - 3 200</td>
+                </tr>
+                <tr>
+                    <td>Młodzież męska 13-15 lat</td>
+                    <td>3 000 - 3 300</td>
+                    <td>Kobiety ciężarne (II połowa ciąży)</td>
+                    <td>2 800</td>
+                </tr>
+                <tr>
+                    <td>Młodzież męska 16-20 lat</td>
+                    <td>3 200 - 3 700</td>
+                    <td>Kobiety karmiące</td>
+                    <td>3 400</td>
+                </tr>
+                <tr>
+                    <td>Młodzież żeńska 13-15 lat</td>
+                    <td>2 600 - 2 800</td>
+                    <td>Mężczyźni 65-75 lat</td>
+                    <td>2 300</td>
+                </tr>
+                <tr>
+                    <td>Młodzież żeńska 16-20 lat</td>
+                    <td>2 500 - 2 700</td>
+                    <td>Mężczyźni powyżej 75 lat</td>
+                    <td>2 100</td>
+                </tr>
+                <tr>
+                    <td>Mężczyźni 21-64 lat praca lekka</td>
+                    <td>2 400 - 2 600</td>
+                    <td>Kobiety 60-75 lat</td>
+                    <td>2 200</td>
+                </tr>
+                <tr>
+                    <td>Mężczyźni 21-64 lat praca umiarkowana</td>
+                    <td>2 800 - 3 200</td>
+                    <td>Kobiety powyżej 75 lat</td>
+                    <td>2 000</td>
+                </tr>
+
+                </tbody>
+            </table>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!--Historia spożytych kalorii-->
+
+    <div style="margin-top: 30px; margin-bottom: 30px;">
+        <!--<button class="uk-button uk-button-default"
+                type="button" uk-toggle="target: #toggle-history"
+                style="color: white; background-color: teal">Zapotrzebowanie na kalorie</button>-->
+            <div id="toggle-history">
+            <h4 class="uk-heading-line">
+            <span style="margin-top: 20px">
+              Historia wpisów
+            </span></h4>
+
+            <div>
+                <table class="uk-table uk-table-small">
+                <thead>
+                <tr>
+                    <th>Lp</th>
+                    <th>Data</th>
+                    <th>Rodzaj</th>
+                    <th>Nazwa posiłku</th>
+                    <th>waga</th>
+                    <th>Liczba kalorii</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <tr>
+                    <td>1</td>
+                    <td>2020-05-25</td>
+                    <td>Obiad</td>
+                    <td>Ziemniaki</td>
+                    <td>150g</td>
+                    <td>30 kcal</td>
+                </tr>
+
+                </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 </html>

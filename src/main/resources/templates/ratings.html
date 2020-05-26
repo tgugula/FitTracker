@@ -22,32 +22,42 @@
                 powyżej 40 - otyłość skrajna</h6>
         </div>
 
-        <div class="uk-navbar-container uk-navbar" style="width: 60%;/* margin-right: 5px; border: red solid 1px*/">
-            <h4 class="uk-heading" ><span style="text-align: center; width: 100%; height: 30px">Oblicz swój wskaźnik BMI</span></h4>
+        <div class="uk-navbar-container uk-navbar" style="width: 60%">
+            <h4 class="uk-heading"><span style="text-align: center; width: 100%; height: 30px">Oblicz swój wskaźnik BMI</span></h4>
 
             <div style="margin-top: 50px">
-                <form style="width: 500px; margin: auto" th:action="@{/bmi/save}" th:object="${bmi}" method="post">
+                <form id="calculatorBMI" style="width: 500px; margin: auto"  method="post">
                     <div class="uk-margin" style="flex-direction: row; display: flex">
-                        <label style="padding-left: 15px; width: 100px">Waga:</label>
-                        <input  class="uk-input" width="400px" type="number" step="0.01" name="weight">
-                         <span>kg</span>
+                        <label style="padding-left: 15px; width: 100px"  >Waga (kg):</label>
+                        <input  class="uk-input" width="400px" type="number" step="0.01" name="waga">
                     </div>
                     <div class="uk-margin" style="flex-direction: row; display: flex">
-                        <label style="padding-left: 15px; width: 100px">Wzrost:  </label>
-                        <input  class="uk-input" width="400px" type="number" step="0.01" name="height">
+                        <label style="padding-left: 15px; width: 100px">Wzrost (cm):  </label>
+                        <input  class="uk-input" width="400px" type="number" step="0.01" name="wzrost">
                     </div>
                     <input class="uk-button uk-button-primary" type="submit" style="background-color: teal; color: white" value="Oblicz">
 
                     <div class="uk-margin" style="flex-direction: row; display: flex">
                         <label style="padding-left: 15px; width: 100px">Wynik:  </label>
-                        <input class="uk-input" width="400px" type="number" ><!--th:field="*{bmiResult}"-->
+                        <p width="400px" type="number" id="resultBMI" th:text="|${#numbers.formatInteger(0, 2)}|"></p> <!--nie działa zaokrąglanie-->
                     </div>
                     <input class="uk-button uk-button-primary" type="submit" style="background-color: teal; color: white" value="Zapisz wynik">
                     <!--<input th:field="*{id}" hidden type="number">-->
                 </form>
-            </div>
-        </div>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+                <script >
+                    $('#calculatorBMI').submit(function(e) {
+                        var wzrost = $("[name='wzrost']").val() / 100,
+                            waga = $("[name='waga']").val();
 
+                        var bmi = waga / (wzrost * wzrost) ;
+
+                        $("[id='resultBMI']").html( bmi);
+                        e.preventDefault();
+                    });
+                </script>
+                </div>
+        </div>
     </div>
 
 
@@ -56,7 +66,7 @@
     <p class="uk-text-left uk-text-center">Proste badanie antropometryczne, pomagające w ocenie typu otyłości. WHR to wzajemny stosunek tych pomiarów - informuje nas o tym, czy mamy do czynienia z otyłością brzuszną (typu androidalnego) niosącą ryzyko powikłań metabolicznych, czy też z otyłością pośladkowo-udową (typu gynoidalnego) z mniejszym ryzykiem powikłań zdrowotnych.</p>
 
     <div class="whr-container" style="flex-direction: row; display: flex">
-        <div style="width: 30%; /*margin-left: 5px; border: red solid 1px*/">
+        <div style="width: 30%">
             <p class="uk-text-left uk-text-bold">Otyłość androidalna:</p>
             <ul class="uk-list">
                 <li> kobiety: WHR większy lub równy 0,8</li>
@@ -71,30 +81,52 @@
 
         </div>
 
-        <div class="uk-navbar-container uk-navbar" style="width: 60%;/* margin-right: 5px; border: red solid 1px*/">
+        <div class="uk-navbar-container uk-navbar" style="width: 60%">
             <h4 ><span style="width:100%; text-align: center">Oblicz swój wskaźnik WHR</span></h4>
             <div style="margin-top: 50px">
-                <form style="width: 500px; margin: auto" th:action="@{/whr/save}" th:object="${whr}" method="post">
+                <form id="calculatorWHR" style="width: 500px; margin: auto" method="post">
                     <div class="uk-margin" style="flex-direction: row; display: flex">
-                        <label style="vertical-align: middle; word-break: normal; padding-left: 15px; width:100px">Obwód pasa:</label>
-                        <input  class="uk-input" width="400px" type="number" step="0.01"><!--th:field="*{waist}"-->
+                        <label style="vertical-align: middle; word-break: normal; padding-left: 15px; width:100px">Obwód pasa (cm):</label>
+                        <input  class="uk-input" width="400px" type="number" step="0.01" name="pas">
                     </div>
                     <div class="uk-margin" style="flex-direction: row; display: flex">
-                        <label style="vertical-align: middle; padding-left: 15px; width:100px">Obwód bioder:  </label>
-                        <input  class="uk-input" width="400px" type="number" step="0.01" ><!--th:field="*{hips}"-->
+                        <label style="vertical-align: middle; padding-left: 15px; width:100px">Obwód bioder (cm):  </label>
+                        <input  class="uk-input" width="400px" type="number" step="0.01" name="biodra">
                     </div>
                     <input class="uk-button uk-button-primary" type="submit" style="background-color: teal; color: white" value="Oblicz">
 
                     <div class="uk-margin" style="flex-direction: row; display: flex">
                         <label style="padding-left: 15px; width: 100px">Wynik:  </label>
-                        <input  width="400px" type="number" class="uk-input"><!--th:field="*{whrResult}"-->
+                        <p width="400px" type="number" id="resultWHR" th:text="|${#numbers.formatInteger(0, 2)}|"></p>
                     </div>
                     <input class="uk-button uk-button-primary" type="submit" style="background-color: teal; color: white" value="Zapisz wynik">
                     <!--<input th:field="*{id}" hidden type="number">-->
                 </form>
+
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+                <script >
+                    $('#calculatorWHR').submit(function(e) {
+                        var pas = $("[name='pas']").val(),
+                            biodra = $("[name='biodra']").val();
+
+                        var whr= pas/biodra  ;
+
+                        $("[id='resultWHR']").html( whr);
+                        e.preventDefault();
+                    });
+                </script>
             </div>
 </div>
     </div>
+
+
+
+
+
+
+
+
+</div>
 </div>
 </body>
 </html>
